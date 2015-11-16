@@ -1,0 +1,388 @@
+{
+  "context": {
+    "owl": "http://www.w3.org/2002/07/owl",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema",
+    "xsd": "http://www.w3.org/2001/XMLSchema"
+  },
+  "graph": [
+    {
+      "id": "Continent",
+      "type": "owl:Class"
+    },
+    {
+      "id": "dragon",
+      "type": "owl:Class",
+      "rdfs:subClassOf": {
+        "id": "Creature"
+      }
+    },
+    {
+      "id": "harrenhall",
+      "type": [
+        "Castle",
+        "owl:NamedIndividual"
+      ]
+    },
+    {
+      "id": "GreyWind",
+      "type": [
+        "owl:NamedIndividual",
+        "direwolf"
+      ]
+    },
+    {
+      "id": "Sansa_Stark",
+      "type": [
+        "person",
+        "owl:NamedIndividual"
+      ],
+      "belongsToHouse": {
+        "id": "HouseStark"
+      },
+      "hasCreature": {
+        "id": "Lady"
+      },
+      "hasSpouse": {
+        "id": "Tyrion_Lannister"
+      }
+    },
+    {
+      "id": "Jon_Snow",
+      "type": [
+        "owl:NamedIndividual",
+        "person"
+      ],
+      "belongsToHouse": {
+        "id": "HouseStark"
+      },
+      "carriesSword": {
+        "id": "LongClaw"
+      },
+      "hasCreature": {
+        "id": "Ghost"
+      },
+      "hasTitle": {
+        "id": "lordCommanderOfTheWall"
+      }
+    },
+    {
+      "id": "winterfell",
+      "type": [
+        "owl:NamedIndividual",
+        "Castle"
+      ]
+    },
+    {
+      "id": "",
+      "type": "owl:Ontology"
+    },
+    {
+      "id": "residesIn",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "Summer",
+      "type": [
+        "owl:NamedIndividual",
+        "direwolf"
+      ]
+    },
+    {
+      "id": "isEnemy",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "HouseTargaryen",
+      "type": [
+        "owl:NamedIndividual",
+        "House"
+      ],
+      "residesIn": {
+        "id": "theRedWaste"
+      }
+    },
+    {
+      "id": "HouseStark",
+      "type": [
+        "owl:NamedIndividual",
+        "House"
+      ],
+      "residesIn": {
+        "id": "theNorth"
+      }
+    },
+    {
+      "id": "HouseHasPeople",
+      "type": "owl:ObjectProperty",
+      "owl:inverseOf": {
+        "id": "belongsToHouse"
+      }
+    },
+    {
+      "id": "theNorth",
+      "type": [
+        "owl:NamedIndividual",
+        "Westeros"
+      ]
+    },
+    {
+      "id": "NormalSword",
+      "type": "owl:Class",
+      "rdfs:subClassOf": {
+        "id": "sword"
+      }
+    },
+    {
+      "id": "Wildling",
+      "type": "owl:Class",
+      "rdfs:subClassOf": {
+        "id": "person"
+      }
+    },
+    {
+      "id": "Gods",
+      "type": "owl:Class"
+    },
+    {
+      "id": "theRedWaste",
+      "type": [
+        "owl:NamedIndividual",
+        "Essos"
+      ]
+    },
+    {
+      "id": "HouseLannister",
+      "type": [
+        "House",
+        "owl:NamedIndividual"
+      ],
+      "isEnemy": {
+        "id": "HouseLannister"
+      },
+      "residesIn": {
+        "id": "theSevenKingdoms"
+      }
+    },
+    {
+      "id": "beyondTheWall",
+      "type": [
+        "owl:NamedIndividual",
+        "Westeros"
+      ]
+    },
+    {
+      "id": "followsGod",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "Essos",
+      "type": "owl:Class",
+      "rdfs:subClassOf": {
+        "id": "Continent"
+      }
+    },
+    {
+      "id": "belongsToHouse",
+      "type": [
+        "owl:FunctionalProperty",
+        "owl:ObjectProperty"
+      ]
+    },
+    {
+      "id": "theSevenKingdoms",
+      "type": [
+        "owl:NamedIndividual",
+        "Westeros"
+      ]
+    },
+    {
+      "id": "hasCreature",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "hasSpouse",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "oathKeeper",
+      "type": [
+        "ValyrianSteel",
+        "owl:NamedIndividual"
+      ]
+    },
+    {
+      "id": "ShaggyDog",
+      "type": [
+        "owl:NamedIndividual",
+        "direwolf"
+      ]
+    },
+    {
+      "id": "hasSigil",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "swordCarriedBy",
+      "type": "owl:ObjectProperty",
+      "owl:inverseOf": {
+        "id": "carriesSword"
+      }
+    },
+    {
+      "id": "lordCommanderOfTheWall",
+      "type": [
+        "owl:NamedIndividual",
+        "Titles"
+      ]
+    },
+    {
+      "id": "theChildren",
+      "type": "owl:Class",
+      "rdfs:subClassOf": {
+        "id": "person"
+      }
+    },
+    {
+      "id": "Tyrion_Lannister",
+      "type": [
+        "person",
+        "owl:NamedIndividual"
+      ],
+      "belongsToHouse": {
+        "id": "HouseLannister"
+      }
+    },
+    {
+      "id": "person",
+      "type": "owl:Class"
+    },
+    {
+      "id": "WhiteWalkers",
+      "type": "owl:Class",
+      "rdfs:subClassOf": {
+        "id": "person"
+      }
+    },
+    {
+      "id": "Sigil",
+      "type": "owl:Class"
+    },
+    {
+      "id": "DothrakiSea",
+      "type": [
+        "Essos",
+        "owl:NamedIndividual"
+      ]
+    },
+    {
+      "id": "hasWords",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "Battle",
+      "type": "owl:Class"
+    },
+    {
+      "id": "House",
+      "type": "owl:Class"
+    },
+    {
+      "id": "Creature",
+      "type": "owl:Class"
+    },
+    {
+      "id": "direwolf",
+      "type": "owl:Class",
+      "rdfs:subClassOf": {
+        "id": "Creature"
+      }
+    },
+    {
+      "id": "Denarys_Targaryen",
+      "type": [
+        "person",
+        "owl:NamedIndividual"
+      ],
+      "belongsToHouse": {
+        "id": "HouseTargaryen"
+      },
+      "hasCreature": {
+        "id": "Drogon"
+      }
+    },
+    {
+      "id": "sword",
+      "type": "owl:Class"
+    },
+    {
+      "id": "Lady",
+      "type": [
+        "owl:NamedIndividual",
+        "direwolf"
+      ]
+    },
+    {
+      "id": "hasTitle",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "Drogon",
+      "type": [
+        "owl:NamedIndividual",
+        "dragon"
+      ]
+    },
+    {
+      "id": "Wargs",
+      "type": "owl:Class",
+      "rdfs:subClassOf": {
+        "id": "person"
+      }
+    },
+    {
+      "id": "ValyrianSteel",
+      "type": "owl:Class",
+      "rdfs:subClassOf": {
+        "id": "sword"
+      }
+    },
+    {
+      "id": "LongClaw",
+      "type": [
+        "ValyrianSteel",
+        "owl:NamedIndividual"
+      ]
+    },
+    {
+      "id": "Ghost",
+      "type": [
+        "owl:NamedIndividual",
+        "direwolf"
+      ]
+    },
+    {
+      "id": "Nymeria",
+      "type": [
+        "owl:NamedIndividual",
+        "direwolf"
+      ]
+    },
+    {
+      "id": "Westeros",
+      "type": "owl:Class",
+      "rdfs:subClassOf": {
+        "id": "Continent"
+      }
+    },
+    {
+      "id": "carriesSword",
+      "type": "owl:ObjectProperty"
+    },
+    {
+      "id": "Castle",
+      "type": "owl:Class"
+    }
+  ]
+}
+
