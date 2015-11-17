@@ -1,6 +1,9 @@
 var graph = Viva.Graph.graph();
 var temp;
 var nodesarray=[];
+var nodesr4=[];
+var nodesr6=[];
+var nodesg4=[];
 var temparray=[];
 var obj=[];
 var t={};
@@ -9,21 +12,25 @@ var graphics = Viva.Graph.View.svgGraphics(),
     nodeSize = 30;
 $.getJSON( "../download/got-data.json", function( data ) {
     $.each(data,function(key,val){
+        graph.addNode("Thing",{size:60,color:'p'});
         if(key==="graph"){
             val.forEach(function(d){
                 if(d.type==="owl:Class" ){
                     if ("rdfs:subClassOf" in d){
                         nodesarray.push(d.id);
-                        graph.addNode(d.id,{size:40,color:'r'});
+                        nodesr4.push(d.id);
+                        graph.addNode(d.id.toString(),{size:40,color:'r'});
                     }
                     else{
                         nodesarray.push(d.id);
-                        graph.addNode(d.id,{size:60,color:'r'});
+                        nodesr6.push(d.id);
+                        graph.addNode(d.id.toString(),{size:60,color:'r'});
                     }
                     }
                 if(d.type.indexOf("owl:NamedIndividual")>-1){
                     nodesarray.push(d.id);
-                    graph.addNode(d.id,{size:40,color:'g'});
+                    nodesg4.push(d.id);
+                    graph.addNode(d.id.toString(),{size:40,color:'g'});
                 }
             });
             val.forEach(function(d){
@@ -32,36 +39,61 @@ $.getJSON( "../download/got-data.json", function( data ) {
                     temparray.push(temp);
                     t.id=temp;
                 }
-                if(nodesarray.indexOf(d.id)>-1)
+                if(typeof d.type !== 'string')
+                    d.type.forEach(function(items){
+                        if(nodesarray.indexOf(items)>-1){
+                            graph.addLink(temp, items);
+                            tarray.push(items);
+                        }
+
+                    });
+                if(nodesarray.indexOf(d.id)>-1){
                     $.each(d,function(k,v){
-                        console.log(v);
                         tarray.push(v);
-                        if(nodesarray.indexOf(v.id)>-1)
+                        if(nodesarray.indexOf(v.id)>-1){
                             graph.addLink(temp, v.id);
+                            tarray.push(v.id);
+                        }
+                        if(v.length>-1&&typeof v !== 'string'){
+//                            console.log(v);
+                            v.forEach(function(i){
+//                                console.log(i);
+                                if(nodesarray.indexOf(i.id)>-1){
+                                    graph.addLink(temp, i.id);
+                                    tarray.push(i.id);
+                                }
+                            });
+                        }
                         });
+                }
                 t.links=tarray;
                 obj.push(t);
                 });
-//            console.log(obj);
+            console.log(nodesg4);
+            console.log(nodesr4);
+            console.log(nodesr6);
 //            console.log(temparray);
-//            console.log(nodesarray);
 
         }
     });
 });
-//graph.addNode('thing', {
+console.log(nodesarray);
+
+nodesr4.forEach(function (items) {
+    graph.addNode(items,{size:40,color:'r'});
+});
+nodesg4.forEach(function (items) {
+    graph.addNode(items,{size:40,color:'r'});
+});
+//graph.addNode('Person', {
 //    size: 60,
 //    color: 'r'
 //});
-//graph.addNode('person', {
-//    size: 40,
-//    color: 'r'
-//});
 //graph.addNode('Continent', {
-//    size: 40,
+//    size: 60,
 //    color: 'r'
 //});
-//graph.addNode('sword', {
+//graph.addNode('Sword', {
 //    size: 40,
 //    color: 'r'
 //});
@@ -90,43 +122,43 @@ $.getJSON( "../download/got-data.json", function( data ) {
 //    color: 'r'
 //});
 //graph.addNode('WhiteWalkers', {
-//    size: 20,
+//    size: 40,
 //    color: 'r'
 //});
-//graph.addNode('theChildren', {
-//    size: 20,
+//graph.addNode('TheChildren', {
+//    size: 40,
 //    color: 'r'
 //});
 //graph.addNode('Wargs', {
-//    size: 20,
+//    size: 40,
 //    color: 'r'
 //});
 //graph.addNode('Wildling', {
-//    size: 20,
+//    size: 40,
 //    color: 'r'
 //});
-//graph.addNode('direwolf', {
-//    size: 20,
+//graph.addNode('Direwolf', {
+//    size: 40,
 //    color: 'r'
 //});
-//graph.addNode('dragon', {
-//    size: 20,
+//graph.addNode('Dragon', {
+//    size: 40,
 //    color: 'r'
 //});
 //graph.addNode('ValyrianSteel', {
-//    size: 20,
+//    size: 40,
 //    color: 'r'
 //});
 //graph.addNode('NormalSword', {
-//    size: 20,
+//    size: 40,
 //    color: 'r'
 //});
-//graph.addNode('winterfell', {
-//    size: 20,
+//graph.addNode('Winterfell', {
+//    size: 40,
 //    color: 'g'
 //});
-//graph.addNode('harrenhall', {
-//    size: 20,
+//graph.addNode('Harrenhall', {
+//    size: 40,
 //    color: 'g'
 //});
 //var DireWolfs = ['Ghost', 'ShaggyDog', 'Lady', 'Nymeria', 'Summer'];
@@ -135,25 +167,25 @@ $.getJSON( "../download/got-data.json", function( data ) {
 //var Gods = ['ManyFacedGods', 'TheRedGods', 'TheGreatWhite', 'TheOldGods'];
 //Gods.forEach(function (items) {
 //    graph.addNode(items, {
-//        size: 20,
+//        size: 40,
 //        color: 'g'
 //    });
 //});
 //DireWolfs.forEach(function (items) {
 //    graph.addNode(items, {
-//        size: 20,
+//        size: 40,
 //        color: 'g'
 //    });
 //});
 //Houses.forEach(function (items) {
 //    graph.addNode(items, {
-//        size: 20,
+//        size: 40,
 //        color: 'g'
 //    });
 //});
 //People.forEach(function (items) {
 //    graph.addNode(items, {
-//        size: 20,
+//        size: 40,
 //        color: 'g'
 //    });
 //});
@@ -164,39 +196,42 @@ $.getJSON( "../download/got-data.json", function( data ) {
 //var DrogonOwner = ['Denarys_Targaryen'];
 //var HouseTargaryen = ['Denarys_Targaryen'];
 //var HouseLannister = ['Tyrion_Lannister'];
-//graph.addNode('LongClaw', {
-//    size: 20,
-//    color: 'g'
+//graph.addNode('Thing', {
+//    size: 60,
+//    color: 'p'
 //});
-//graph.addNode('oathKeeper', {
-//    size: 20,
+//graph.addNode('OathKeeper', {
+//    size: 40,
 //    color: 'g'
 //});
 //graph.addNode('Drogon', {
-//    size: 20,
+//    size: 40,
 //    color: 'g'
 //});
 //graph.addNode('Westeros', {
-//    size: 20,
+//    size: 40,
 //    color: 'g'
 //});
 //graph.addNode('Essos', {
-//    size: 20,
+//    size: 40,
 //    color: 'g'
 //});
 //graph.addNode('DothrakiSea', {
-//    size: 20,
+//    size: 40,
 //    color: 'g'
 //});
-//graph.addNode('theNorth', {
-//    size: 20,
+//graph.addNode('TheNorth', {
+//    size: 40,
 //    color: 'g'
 //});
 //graph.addNode('Valyria', {
-//    size: 20,
+//    size: 40,
 //    color: 'g'
 //});
-//////////////////////////////////
+nodesr6.forEach(function (items) {
+    graph.addNode(items,{size:40,color:'r'});
+});
+////////////////////////////////
 //graph.addLink("Nymeria", "Arya_Stark");
 //graph.addLink("LongClaw", "Jon_Snow");
 //graph.addLink("Ghost", "Jon_Snow");
@@ -205,7 +240,7 @@ $.getJSON( "../download/got-data.json", function( data ) {
 //graph.addLink("HouseTargaryen", "Denarys_Targaryen");
 //graph.addLink("HouseTargaryen", "Valyria");
 //graph.addLink("HouseLannister", "Tyrion_Lannister");
-//graph.addLink("ValyrianSteel", "oathKeeper");
+//graph.addLink("ValyrianSteel", "OathKeeper");
 //graph.addLink("Continent", "Westeros");
 //graph.addLink("Continent", "Essos");
 //graph.addLink("theNorth", "Westeros");
@@ -224,16 +259,13 @@ $.getJSON( "../download/got-data.json", function( data ) {
 //graph.addLink("Essos", "Denarys_Targaryen");
 //graph.addLink("Essos", "HouseTargaryen");
 //graph.addLink("Essos", "Denarys_Targaryen");
-////
+
 /////////////////////////////
-//var Things = ['person', 'Continent', 'sword', 'Gods', 'Castle', 'Sigil', 'Battle', 'Creature', 'House'];
 //var Castles = ['winterfell', 'harrenhall'];
 //var Swords = ['ValyrianSteel', 'NormalSword'];
 //var Persons = ['WhiteWalkers', 'theChildren', 'Wargs', 'Wildling'];
-//var Creatures = ["direwolf", "dragon"];
-//Things.forEach(function (items) {
-//    graph.addLink('thing', items);
-//});
+//var Creatures = ["Direwolf", "Dragon"];
+//
 //Houses.forEach(function (items) {
 //    graph.addLink('House', items);
 //});
@@ -241,16 +273,16 @@ $.getJSON( "../download/got-data.json", function( data ) {
 //    graph.addLink('Castle', items);
 //});
 //DireWolfs.forEach(function (items) {
-//    graph.addLink('direwolf', items);
+//    graph.addLink('Direwolf', items);
 //});
 //Swords.forEach(function (items) {
-//    graph.addLink('sword', items);
+//    graph.addLink('Sword', items);
 //});
 //Persons.forEach(function (items) {
-//    graph.addLink('person', items);
+//    graph.addLink('Person', items);
 //});
 //People.forEach(function (items) {
-//    graph.addLink('person', items);
+//    graph.addLink('Person', items);
 //});
 //Creatures.forEach(function (items) {
 //    graph.addLink('Creature', items);
