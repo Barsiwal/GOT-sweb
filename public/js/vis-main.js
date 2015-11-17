@@ -1,6 +1,10 @@
 var graph = Viva.Graph.graph();
 var temp;
-var nodesarray;
+var nodesarray=[];
+var temparray=[];
+var obj=[];
+var t={};
+var tarray=[];
 var graphics = Viva.Graph.View.svgGraphics(),
     nodeSize = 30;
 $.getJSON( "../download/got-data.json", function( data ) {
@@ -8,30 +12,40 @@ $.getJSON( "../download/got-data.json", function( data ) {
         if(key==="graph"){
             val.forEach(function(d){
                 if(d.type==="owl:Class" ){
-                    if ("rdfs:subClassOf" in d)
+                    if ("rdfs:subClassOf" in d){
                         nodesarray.push(d.id);
                         graph.addNode(d.id,{size:40,color:'r'});
-                    else
+                    }
+                    else{
                         nodesarray.push(d.id);
                         graph.addNode(d.id,{size:60,color:'r'});
+                    }
                     }
                 if(d.type.indexOf("owl:NamedIndividual")>-1){
                     nodesarray.push(d.id);
                     graph.addNode(d.id,{size:40,color:'g'});
                 }
-                val.forEach(function(d){
-                    if(d.type!=="owl:ObjectProperty" && d.type!=="owl:DatatypeProperty" && d.type.indexOf("owl:ObjectProperty")<0){
-                        $.each(d,function(k,v){
-                            if(nodesarray.indexOf(d.id)>-1)
-                                temp=d.id;
-                            console.log(temp);
-//                            if(k!=="type"&&k!=="rdfs:comment")
-//                                graph.addLink(temp, v);
-//                            
-                        })
-                    }
-                });
             });
+            val.forEach(function(d){
+                if(nodesarray.indexOf(d.id)>-1&&temparray.indexOf(d.id)<0){
+                    temp=d.id;
+                    temparray.push(temp);
+                    t.id=temp;
+                }
+                if(nodesarray.indexOf(d.id)>-1)
+                    $.each(d,function(k,v){
+                        console.log(v);
+                        tarray.push(v);
+                        if(nodesarray.indexOf(v.id)>-1)
+                            graph.addLink(temp, v.id);
+                        });
+                t.links=tarray;
+                obj.push(t);
+                });
+//            console.log(obj);
+//            console.log(temparray);
+//            console.log(nodesarray);
+
         }
     });
 });
