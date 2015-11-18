@@ -41,9 +41,9 @@ svg {
     padding: 0;
     margin: 0;
     font-size: 3.5em;
-//    background-color: rgb(255, 121, 62);
-//    text-shadow: 0 0 2px #fff;
-//    color: #fff;
+    background-color: rgb(255, 121, 62);
+    text-shadow: 0 0 2px #fff;
+    color: #fff;
     box-shadow: 0 0 2px #ccc;
     color:#000;
 }
@@ -55,8 +55,7 @@ svg {
     width: 40%;
     position: absolute;
     z-index: 1000;
-    background-color: #000000;
-//    background-color: #D63C3C;
+    background-color: #D63C3C;
     transition: all .4s ease;
     box-shadow: 0 0 9px #000;
     h1 {
@@ -70,6 +69,9 @@ svg {
     img{
         display: block;
         margin-top: 10%;
+    }
+    p{
+        padding:0 10px;
     }
 }
 

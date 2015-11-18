@@ -642,6 +642,7 @@ var t = {};
 var tarray = [];
 var graphics = Viva.Graph.View.svgGraphics(),
     nodeSize = 30;
+//////////////////////////////////////////////////////////////////
 mainobj["graph"].forEach(function (d) {
     if (d.type === "owl:Class") {
         if ("rdfs:subClassOf" in d) {
@@ -649,14 +650,16 @@ mainobj["graph"].forEach(function (d) {
             nodesr4.push(d.id);
             graph.addNode(d.id, {
                 size: 40,
-                color: 'r'
+                color: 'r',
+                data:d.id
             });
         } else {
             nodesarray.push(d.id);
             nodesr6.push(d.id);
             graph.addNode(d.id, {
                 size: 60,
-                color: 'r'
+                color: 'r',
+                data:d.id
             });
         }
     }
@@ -665,7 +668,8 @@ mainobj["graph"].forEach(function (d) {
         nodesg4.push(d.id);
         graph.addNode(d.id, {
             size: 40,
-            color: 'g'
+            color: 'g',
+            data:d.id
         });
     }
 });
@@ -705,13 +709,21 @@ mainobj["graph"].forEach(function (d) {
     t.links = tarray;
     obj.push(t);
 });
-console.log(nodesarray);
-console.log(nodesarray);
+var commentarray = [];
+//////////////////////////////////////////////////////////
+console.log(nodesr4);
 console.log(nodesr6);
-
+console.log(nodesg4);
+mainobj["graph"].forEach(function (d){
+    if ("rdfs:comment" in d){
+        commentarray.push(d.id);
+    }
+});
+console.log(commentarray);
 graph.addNode('Thing', {
     size: 60,
-    color: 'p'
+    color: 'p',
+    data:'Thing'
 });
 nodesr6.forEach(function (items) {
     graph.addLink('Thing', items);
@@ -923,6 +935,7 @@ graphics.node(function (node) {
         .attr('width', node.data.size)
         .attr('height', node.data.size)
         .attr('class', "clickme")
+        .attr('data-nodename', node.data.data)
         .link('../images/' + node.data.color + '.png');
 
     ui.append(svgText);
