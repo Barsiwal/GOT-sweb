@@ -639,6 +639,15 @@ console.log(commentarray);
 ////////////////////////////
 $('.clickme').click(function () {
     var foo = $(this).data("nodename");
+    commentarray.forEach(function(d){
+        if(d.id===foo){
+            $('.side').toggleClass('move');
+            $( ".side h1" ).replaceWith( "<h1>"+d.id+"</h1>" );
+            $( ".side img" ).replaceWith( '<img src="../images/'+d.id+'.jpg">');
+            $( ".side div .comments" ).replaceWith( '<p class="comments">'+d["rdfs:comment"]+'</p>' );
+            $( ".side div .data" ).replaceWith( '<p class="data">'+$.each(d,function(k,v){console.log(k);return k+" "+v;})+'</p>' );
+        }
+    });
     console.log(foo);
-    $('.side').toggleClass('move');
+
 });

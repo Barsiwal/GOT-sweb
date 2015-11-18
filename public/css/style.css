@@ -61,7 +61,8 @@ svg {
     color: #fff; }
   .side img {
     display: block;
-    margin-top: 10%; }
+    margin: 0 auto;
+    height: 200px; }
   .side p {
     padding: 0 10px; }
 
