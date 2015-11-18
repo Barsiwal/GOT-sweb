@@ -1,0 +1,71 @@
+#page-home {
+  background: url("../images/HOME.png") center center fixed;
+  background-size: cover; }
+  #page-home > header {
+    background-color: rgba(0, 0, 0, 0.38);
+    padding-top: 33%; }
+
+#page-docu {
+  background: url("../images/b2.jpg") center center fixed;
+  background-size: cover; }
+  #page-docu > header {
+    background-color: rgba(0, 0, 0, 0.38);
+    padding-top: 33%;
+    height: 100%; }
+
+#page-manuals {
+  background: url("../images/b3.jpg") center center fixed;
+  background-size: cover; }
+  #page-manuals > header {
+    background-color: rgba(0, 0, 0, 0.38);
+    padding-top: 33%;
+    height: 100%; }
+
+#page-software {
+  background: url("../images/b5.jpg") center center fixed;
+  background-size: cover; }
+  #page-software > header {
+    background-color: rgba(0, 0, 0, 0.38);
+    padding-top: 33%;
+    height: 100%; }
+
+#page-custom {
+  background: url("../images/b4.jpg") center center fixed;
+  background-size: cover; }
+  #page-custom > header {
+    background-color: rgba(0, 0, 0, 0.38);
+    padding-top: 33%;
+    height: 100%; }
+
+.menu-button::after, .menu-button span {
+  background: #FFFFFF; }
+
+.menu-button::before, .menu-button::after, .menu-button span {
+  background: #FFFFFF; }
+
+.info {
+  font-size: 1.25em;
+  max-width: 100%;
+  margin-top: 1.5em; }
+
+.btn {
+  float: right;
+  margin-right: 10px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #5c5edc;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: normal; }
+
+.btn:hover {
+  background: #5557c2;
+  text-decoration: none; }
+
+/*# sourceMappingURL=main.css.map */
