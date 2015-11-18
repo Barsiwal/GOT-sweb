@@ -639,9 +639,9 @@ var temps;
 ////////////////////////////
 $('.clickme').click(function () {
     var foo = $(this).data("nodename");
-    $(".side div .data").replaceWith('<ul class="data"></ul>');
     commentarray.forEach(function (d) {
         if (d.id === foo) {
+            $(".side div .data").replaceWith('<ul class="data"></ul>');
             $('.side').toggleClass('move');
             $(".side h1").replaceWith("<h1>" + d.id + "</h1>");
             $(".side img").replaceWith('<img src="../images/' + d.id + '.jpg">');
@@ -649,16 +649,26 @@ $('.clickme').click(function () {
             $.each(d, function (k, v) {
                 if (typeof v === 'string' && k !== "rdfs:comment" && k !== "id") {
                     $(".side div .data").append("<li>" + k + " - " + v + "</li>");
-                }
-                if (k === "type") {
+                } else if (k === "type") {
                     $(".side div .data").append('<li class="nodetype">' + k + ' -</li>');
                     v.forEach(function (data) {
                         if (typeof data === 'string') {
-                            $(".nodetype").append(" "+data);
+                            $(".nodetype").append(" " + data);
 
                         }
                     });
+                } else if (k === "hasSibling") {
+                    $(".side div .data").append('<li class="hasSibling">' + k + ' -</li>');
+                    if (v.length > -1 && typeof v !== 'string')
+                        v.forEach(function (data) {
+                            $(".hasSibling").append(" " + data.id);
+
+
+                        });
+                } else if (k !== "rdfs:comment" && k !== "id") {
+                    $(".side div .data").append("<li>" + k + " - " + v.id + "</li>");
                 }
+
 
             });
         }
