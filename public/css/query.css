@@ -1,0 +1,13 @@
+h1 {
+  text-align: center;
+  color: #fff; }
+
+textarea {
+  height: 50vh;
+  max-height: 50vh; }
+
+body {
+  background: url("../images/b6.jpg") center center fixed;
+  background-size: cover; }
+
+/*# sourceMappingURL=query.css.map */

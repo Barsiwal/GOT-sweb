@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,EAAE;EACE,UAAU,EAAE,MAAM;EAClB,KAAK,EAAC,IAAI;;AAId,QAAQ;EACJ,MAAM,EAAC,IAAI;EACX,UAAU,EAAE,IAAI;;AAEpB,IAAI;EACA,UAAU,EAAC,2CAA2C;EACtD,eAAe,EAAE,KAAK",
+"sources": ["query.scss"],
+"names": [],
+"file": "query.css"
+}
