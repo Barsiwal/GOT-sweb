@@ -108,7 +108,7 @@ var mainobj = {
         "residesInCastle": {
             "id": "theNightsWatch"
         },
-        "rdfs:comment": "on is the bastard son of Lord Eddard Stark of Winterfell. He was a steward in the Night's Watch. Now serving on the Wall, Jon has found a place of acceptance where the circumstances of his birth are of little importance. He has a pet direwolf named Ghost, and wields the bastard sword, Longclaw, which was a gift from Lord Commander Jeor Mormont, who took Jon as his personal steward and came to see him as a surrogate son."
+        "rdfs:comment": "Jon is the bastard son of Lord Eddard Stark of Winterfell. He was a steward in the Night's Watch. Now serving on the Wall, Jon has found a place of acceptance where the circumstances of his birth are of little importance. He has a pet direwolf named Ghost, and wields the bastard sword, Longclaw, which was a gift from Lord Commander Jeor Mormont, who took Jon as his personal steward and came to see him as a surrogate son."
     }, {
         "id": "carriesSword",
         "type": "owl:ObjectProperty",
@@ -635,19 +635,33 @@ mainobj["graph"].forEach(function (d) {
         commentarray.push(d);
     }
 });
-console.log(commentarray);
+var temps;
 ////////////////////////////
 $('.clickme').click(function () {
     var foo = $(this).data("nodename");
-    commentarray.forEach(function(d){
-        if(d.id===foo){
+    $(".side div .data").replaceWith('<ul class="data"></ul>');
+    commentarray.forEach(function (d) {
+        if (d.id === foo) {
             $('.side').toggleClass('move');
-            $( ".side h1" ).replaceWith( "<h1>"+d.id+"</h1>" );
-            $( ".side img" ).replaceWith( '<img src="../images/'+d.id+'.jpg">');
-            $( ".side div .comments" ).replaceWith( '<p class="comments">'+d["rdfs:comment"]+'</p>' );
-            $( ".side div .data" ).replaceWith( '<p class="data">'+$.each(d,function(k,v){console.log(k);return k+" "+v;})+'</p>' );
+            $(".side h1").replaceWith("<h1>" + d.id + "</h1>");
+            $(".side img").replaceWith('<img src="../images/' + d.id + '.jpg">');
+            $(".side div .comments").replaceWith('<p class="comments">' + d["rdfs:comment"] + '</p>');
+            $.each(d, function (k, v) {
+                if (typeof v === 'string' && k !== "rdfs:comment" && k !== "id") {
+                    $(".side div .data").append("<li>" + k + " - " + v + "</li>");
+                }
+                if (k === "type") {
+                    $(".side div .data").append('<li class="nodetype">' + k + ' -</li>');
+                    v.forEach(function (data) {
+                        if (typeof data === 'string') {
+                            $(".nodetype").append(" "+data);
+
+                        }
+                    });
+                }
+
+            });
         }
     });
-    console.log(foo);
 
 });
