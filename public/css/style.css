@@ -43,6 +43,7 @@ svg {
   color: #000; }
 
 .side {
+  overflow-y: auto;
   top: 0;
   right: -42%;
   height: 100vh;
