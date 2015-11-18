@@ -3,14 +3,17 @@
   background-size: cover; }
   #page-home > header {
     background-color: rgba(0, 0, 0, 0.38);
-    padding-top: 33%; }
+    padding-top: 15%;
+    height: 100%; }
+    #page-home > header img {
+      width: 600px; }
 
 #page-docu {
   background: url("../images/b2.jpg") center center fixed;
   background-size: cover; }
   #page-docu > header {
     background-color: rgba(0, 0, 0, 0.38);
-    padding-top: 33%;
+    padding-top: 20%;
     height: 100%; }
 
 #page-manuals {
@@ -18,7 +21,7 @@
   background-size: cover; }
   #page-manuals > header {
     background-color: rgba(0, 0, 0, 0.38);
-    padding-top: 33%;
+    padding-top: 20%;
     height: 100%; }
 
 #page-software {
@@ -26,7 +29,7 @@
   background-size: cover; }
   #page-software > header {
     background-color: rgba(0, 0, 0, 0.38);
-    padding-top: 33%;
+    padding-top: 20%;
     height: 100%; }
 
 #page-custom {
@@ -34,7 +37,7 @@
   background-size: cover; }
   #page-custom > header {
     background-color: rgba(0, 0, 0, 0.38);
-    padding-top: 33%;
+    padding-top: 20%;
     height: 100%; }
 
 .menu-button::after, .menu-button span {
