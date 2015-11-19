@@ -3,10 +3,11 @@
   background-size: cover; }
   #page-home > header {
     background-color: rgba(0, 0, 0, 0.38);
-    padding-top: 15%;
+    padding-top: 20%;
     height: 100%; }
     #page-home > header img {
-      width: 600px; }
+      width: 600px;
+      margin-bottom: 40px; }
 
 #page-docu {
   background: url("../images/b2.jpg") center center fixed;
@@ -70,5 +71,8 @@
 .btn:hover {
   background: #5557c2;
   text-decoration: none; }
+
+.bar {
+  height: 460px; }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,4 +1,4 @@
-/* General Blueprint Style */
+
 
 @font-face {
 	font-family: 'bpicons';
@@ -9,10 +9,10 @@
 }
 
 
-/* Made with http://icomoon.io/ */
 
 
-/* Resets */
+
+
 
 *,
 *:after,
@@ -21,7 +21,7 @@
 }
 
 
-/* Helper classes */
+
 
 .cf:before,
 .cf:after {
@@ -34,7 +34,7 @@
 }
 
 
-/* Main styles */
+
 
 body {
 	font-family: 'Avenir Next', Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
@@ -56,7 +56,7 @@ a:hover {
 }
 
 
-/* Blueprint header */
+
 
 .bp-header {
 	padding: 6em 10vw 2em;

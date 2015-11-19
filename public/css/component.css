@@ -4,7 +4,7 @@ html.js,
 	height: 100vh;
 }
 
-/* Pages nav */
+
 
 .pages-nav {
 	display: -webkit-flex;
@@ -138,7 +138,7 @@ html.js,
 	color: transparent;
 }
 
-/* Pages stack */
+
 
 .js .pages-stack {
 	z-index: 100;
@@ -175,7 +175,7 @@ html.js,
 	opacity: 0;
 }
 
-/* page content */
+
 
 .info {
 	font-size: 1.25em;
@@ -191,7 +191,7 @@ html.js,
 	max-height: 80%;
 }
 
-/* Menu button */
+
 
 .menu-button {
 	position: absolute;
