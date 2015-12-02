@@ -103,6 +103,11 @@ var mainobj = {
         "followsReligion": {
             "id": "OldGodsOfTheForest"
         },
+        "hasSibling": [{
+            "id": "SansaStark"
+        }, {
+            "id": "AryaStark"
+        }],
         "hasName": "Jon Snow",
         "hasTitle": "998th Lord Commander of the Night's Watch",
         "residesInCastle": {
@@ -559,6 +564,11 @@ var mainobj = {
         "followsReligion": {
             "id": "OldGodsOfTheForest"
         },
+        "hasSibling": [{
+            "id": "JonSnow"
+        }, {
+            "id": "AryaStark"
+        }],
         "hasName": "Sansa Stark",
         "hasSpouse": {
             "id": "TyrionLannister"
@@ -637,18 +647,16 @@ mainobj["graph"].forEach(function (d) {
 });
 var temps;
 ////////////////////////////
-$('.clickme').click(function () {
-    var foo = $(this).data("nodename");
+var sidebar = function (foo) {
     commentarray.forEach(function (d) {
         if (d.id === foo) {
             $(".side div .data").replaceWith('<ul class="data"></ul>');
-            $('.side').toggleClass('move');
             $(".side h1").replaceWith("<h1>" + d.id + "</h1>");
             $(".side img").replaceWith('<img src="../images/' + d.id + '.jpg">');
             $(".side div .comments").replaceWith('<p class="comments">' + d["rdfs:comment"] + '</p>');
             $.each(d, function (k, v) {
                 if (typeof v === 'string' && k !== "rdfs:comment" && k !== "id") {
-                    $(".side div .data").append("<li>" + k + " - " + v + "</li>");
+                    $(".side div .data").append('<li>' + k + ' - ' + v + '</li>');
                 } else if (k === "type") {
                     $(".side div .data").append('<li class="nodetype">' + k + ' -</li>');
                     v.forEach(function (data) {
@@ -659,19 +667,46 @@ $('.clickme').click(function () {
                     });
                 } else if (k === "hasSibling") {
                     $(".side div .data").append('<li class="hasSibling">' + k + ' -</li>');
-                    if (v.length > -1 && typeof v !== 'string')
+                    if (v.length > -1 && typeof v !== 'string') {
                         v.forEach(function (data) {
-                            $(".hasSibling").append(" " + data.id);
-
-
+                            $(".hasSibling").append('<a class="clickmeee" data-nodename="' + data.id + '">' + data.id + ' </a>');
                         });
+                        $('.clickmeee').click(function () {
+                            var foo = $(this).data("nodename");
+                            commentarray.forEach(function (d) {
+                                if (d.id === foo) {
+                                    sidebar(foo);
+                                    console.log('hohoho');
+                                }
+                            });
+                        });
+
+                    }
                 } else if (k !== "rdfs:comment" && k !== "id") {
-                    $(".side div .data").append("<li>" + k + " - " + v.id + "</li>");
+                    $(".side div .data").append('<li><a class="clickmee" data-nodename="' + v.id + '">' + k + ' - ' + v.id + '</a></li>');
+                    $('.clickmee').click(function () {
+                        var foo = $(this).data("nodename");
+                        commentarray.forEach(function (d) {
+                            if (d.id === foo) {
+                                sidebar(foo);
+                                console.log('hohoho');
+                            }
+                        });
+                    });
                 }
-
-
             });
         }
     });
+};
+////////////////////////////
+$('.clickme').click(function () {
+    var foo = $(this).data("nodename");
+    commentarray.forEach(function (d) {
+        if (d.id === foo) {
+            $('.side').toggleClass('move');
+        }
+    });
+    console.log('hohoho');
+    sidebar(foo);
 
 });
