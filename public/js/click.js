@@ -1,3 +1,4 @@
+var colors = ["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#34495e", "#16a085", "#27ae60", "#2980b9", "#8e44ad", "#2c3e50", "#f1c40f", "#e67e22", "#e74c3c", "#ecf0f1", "#95a5a6", "#f39c12", "#d35400", "#c0392b", "#bdc3c7", "#7f8c8d"];
 var mainobj = {
     "context": {
         "owl": "http://www.w3.org/2002/07/owl",
@@ -658,7 +659,7 @@ var sidebar = function (foo) {
                 if (typeof v === 'string' && k !== "rdfs:comment" && k !== "id") {
                     $(".side div .data").append('<li>' + k + ' - ' + v + '</li>');
                 } else if (k === "type") {
-                    $(".side div .data").append('<li class="nodetype">' + k + ' -</li>');
+                    $(".side div .data").append('<li class="nodetype"> ' + k + ' - </li>');
                     v.forEach(function (data) {
                         if (typeof data === 'string') {
                             $(".nodetype").append(" " + data);
@@ -669,7 +670,7 @@ var sidebar = function (foo) {
                     $(".side div .data").append('<li class="hasSibling">' + k + ' -</li>');
                     if (v.length > -1 && typeof v !== 'string') {
                         v.forEach(function (data) {
-                            $(".hasSibling").append('<a class="clickmeee" data-nodename="' + data.id + '">' + data.id + ' </a>');
+                            $(".hasSibling").append('<a style="color:'+colors[getRandomInt()]+'" class="clickmeee" data-nodename="' + data.id + '">' + data.id + ' </a>');
                         });
                         $('.clickmeee').click(function () {
                             var foo = $(this).data("nodename");
@@ -683,7 +684,7 @@ var sidebar = function (foo) {
 
                     }
                 } else if (k !== "rdfs:comment" && k !== "id") {
-                    $(".side div .data").append('<li><a class="clickmee" data-nodename="' + v.id + '">' + k + ' - ' + v.id + '</a></li>');
+                    $(".side div .data").append('<li>' + k + ' - <a class="clickmee" style="color:'+colors[getRandomInt()]+'" data-nodename="' + v.id + '">' + v.id + '</a></li>');
                     $('.clickmee').click(function () {
                         var foo = $(this).data("nodename");
                         commentarray.forEach(function (d) {
@@ -710,3 +711,6 @@ $('.clickme').click(function () {
     sidebar(foo);
 
 });
+function getRandomInt() {
+  return Math.floor(Math.random() * (21 - 0)) + 0;
+}

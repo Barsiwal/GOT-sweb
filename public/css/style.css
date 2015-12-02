@@ -30,12 +30,12 @@ a {
   cursor: pointer; }
 
 body {
-  overflow-x: hidden; }
+  overflow: hidden; }
 
 svg {
   display: block;
   width: 100%;
-  height: 515px;
+  height: 507px;
   overflow-y: hidden; }
 
 .check {

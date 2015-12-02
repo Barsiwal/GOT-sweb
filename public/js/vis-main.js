@@ -728,10 +728,26 @@ graph.addNode('Thing', {
 nodesr6.forEach(function (items) {
     graph.addLink('Thing', items);
 });
-//graph.addNode('Continent', {
-//    size: 60,
-//    color: 'r'
-//});
+graph.addNode('AryaStark', {
+    size: 40,
+    color: 'Arya',
+    data:'AryaStark'
+});
+graph.addNode('DenarysTargaryen', {
+    size: 40,
+    color: 'Denarys',
+    data:'DenarysTargaryen'
+});
+graph.addNode('TyrionLannister', {
+    size: 40,
+    color: 'Tyrion',
+    data:'TyrionLannister'
+});
+graph.addNode('JonSnow', {
+    size: 40,
+    color: 'Jon',
+    data:'JonSnow'
+});
 //graph.addNode('Sword', {
 //    size: 40,
 //    color: 'r'
