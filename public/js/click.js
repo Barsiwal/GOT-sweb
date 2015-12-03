@@ -155,7 +155,8 @@ var mainobj = {
         "type": [
             "owl:NamedIndividual",
             "ValyrianSteel"
-        ]
+        ],
+        "rdfs:comment": "Longclaw is a Valyrian steel sword, in the possession of House Mormont for five centuries. When Lord Jeor Mormont retired from his lordship to take the black and command the Night's Watch, he passed it to his son and heir, Ser Jorah Mormont. When Jorah went into exile after trying to sell some poachers into slavery, he had the sword sent back to his father on the Wall.\n\nYears later, Jeor gave Longclaw to Jon Snow as a reward for saving his life from a wight. Before giving it to Jon he had the pommel remade, replacing the bear with a direwolf, the sigil of House Stark."
     }, {
         "id": "DrownedGod",
         "type": [
@@ -518,7 +519,7 @@ var mainobj = {
             "NormalSteel",
             "owl:NamedIndividual"
         ],
-        "rdfs:comment": "Longclaw is a Valyrian steel sword, in the possession of House Mormont for five centuries. When Lord Jeor Mormont retired from his lordship to take the black and command the Night's Watch, he passed it to his son and heir, Ser Jorah Mormont. When Jorah went into exile after trying to sell some poachers into slavery, he had the sword sent back to his father on the Wall.\n\nYears later, Jeor gave Longclaw to Jon Snow as a reward for saving his life from a wight. Before giving it to Jon he had the pommel remade, replacing the bear with a direwolf, the sigil of House Stark."
+        "rdfs:comment": "Needle is a thin sword wielded by Arya Stark. It was given to her by Jon Snow, who had it made by Mikken, the blacksmith of Winterfell. The sword is well suited to Arya's slight build, which prevents her from fighting in the style of large male Westerosi knights, who employ powerful slashing moves and strong blocks using a heavy sword. Instead, Arya and Needle are much better suited to the Water Dance style of fencing popular in Braavos and other Free Cities, which emphasizes speed and agility with a thin, light rapier used in quick thrusting attacks. "
     }, {
         "id": "HouseInfo",
         "type": "owl:DatatypeProperty",

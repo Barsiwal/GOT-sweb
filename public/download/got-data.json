@@ -149,7 +149,8 @@
         "type": [
             "owl:NamedIndividual",
             "ValyrianSteel"
-        ]
+        ],
+        "rdfs:comment": "Longclaw is a Valyrian steel sword, in the possession of House Mormont for five centuries. When Lord Jeor Mormont retired from his lordship to take the black and command the Night's Watch, he passed it to his son and heir, Ser Jorah Mormont. When Jorah went into exile after trying to sell some poachers into slavery, he had the sword sent back to his father on the Wall.\n\nYears later, Jeor gave Longclaw to Jon Snow as a reward for saving his life from a wight. Before giving it to Jon he had the pommel remade, replacing the bear with a direwolf, the sigil of House Stark."
     }, {
         "id": "DrownedGod",
         "type": [
