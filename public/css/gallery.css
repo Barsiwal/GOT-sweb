@@ -59,6 +59,8 @@ body {
     height: 100%; }
 
 .bar {
+  overflow-y: auto;
+  height: 400px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between; }
