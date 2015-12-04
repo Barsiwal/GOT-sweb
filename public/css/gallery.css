@@ -1,3 +1,23 @@
+/* Let's get this party started */
+::-webkit-scrollbar {
+  width: 5px; }
+
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 10px;
+  border-radius: 10px; }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2); }
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(255, 0, 0, 0.9); }
+
 @font-face {
   font-family: 'icomoon';
   src: url("../fonts/icomoon.eot?70pigk");
@@ -18,10 +38,12 @@
   -moz-osx-font-smoothing: grayscale; }
 
 .icon-arrow_back:before {
-  content: "\e900"; }
+  content: "\e900";
+  color: #fff; }
 
 a {
-  cursor: pointer; }
+  cursor: pointer;
+  text-decoration: none; }
 
 body {
   overflow: hidden;
@@ -38,10 +60,12 @@ body {
 
 .bar {
   display: flex;
-  overflow-x: scroll; }
-  .bar iframe {
-    display: inline-block;
-    padding: 0 10px; }
+  flex-wrap: wrap;
+  justify-content: space-between; }
+  .bar > iframe {
+    padding: 10px 0;
+    height: 200px;
+    width: 350px; }
 
 body {
   font-family: 'Avenir Next', Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
@@ -75,9 +99,7 @@ body {
   z-index: 100;
   display: block;
   padding: 0 0 0.6em 0.1em;
-  letter-spacing: 0.5em;
-  text-transform: uppercase;
-  color: #5c5edc; }
+  letter-spacing: 0.5em; }
 
 .bp-tooltip:after {
   font-size: 50%;

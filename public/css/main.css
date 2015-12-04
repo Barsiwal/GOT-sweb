@@ -1,10 +1,28 @@
+/* Let's get this party started */
+::-webkit-scrollbar {
+  width: 5px; }
+
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 10px;
+  border-radius: 10px; }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2); }
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(255, 0, 0, 0.9); }
+
 video#bgvid {
   position: fixed;
   top: 50%;
   left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
+  width: 100%;
   height: auto;
   z-index: -100;
   -webkit-transform: translateX(-50%) translateY(-50%);
@@ -45,7 +63,8 @@ video#bgvid {
   #page-software > header {
     background-color: rgba(0, 0, 0, 0.38);
     padding-top: 10%;
-    height: 100%; }
+    height: 100%;
+    overflow-y: auto; }
 
 #page-custom {
   background: url("../images/b4.jpg") center center fixed;
@@ -101,9 +120,11 @@ video#bgvid {
 
 .bar {
   display: flex;
-  overflow-x: scroll; }
-  .bar iframe {
-    display: inline-block;
-    padding: 0 10px; }
+  flex-wrap: wrap;
+  justify-content: space-between; }
+  .bar > iframe {
+    padding: 10px 0;
+    height: 200px;
+    width: 350px; }
 
 /*# sourceMappingURL=main.css.map */
