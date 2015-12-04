@@ -128,3 +128,24 @@ svg {
         color: #fff;
     }
 }
+.btn {
+    float: right;
+    margin-right: 10px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    background: #5c5edc;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    font-weight: 400;
+    text-transform: capitalize;
+    letter-spacing: normal;
+}
+
+.btn:hover {
+    background: #5557c2;
+    text-decoration: none;
+}

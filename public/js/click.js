@@ -671,7 +671,7 @@ var sidebar = function (foo) {
                     $(".side div .data").append('<li class="hasSibling">' + k + ' -</li>');
                     if (v.length > -1 && typeof v !== 'string') {
                         v.forEach(function (data) {
-                            $(".hasSibling").append('<a style="color:'+colors[getRandomInt()]+'" class="clickmeee" data-nodename="' + data.id + '">' + data.id + ' </a>');
+                            $(".hasSibling").append('<a style="color:' + colors[getRandomInt()] + '" class="clickmeee" data-nodename="' + data.id + '">' + data.id + ' </a>');
                         });
                         $('.clickmeee').click(function () {
                             var foo = $(this).data("nodename");
@@ -685,7 +685,7 @@ var sidebar = function (foo) {
 
                     }
                 } else if (k !== "rdfs:comment" && k !== "id") {
-                    $(".side div .data").append('<li>' + k + ' - <a class="clickmee" style="color:'+colors[getRandomInt()]+'" data-nodename="' + v.id + '">' + v.id + '</a></li>');
+                    $(".side div .data").append('<li>' + k + ' - <a class="clickmee" style="color:' + colors[getRandomInt()] + '" data-nodename="' + v.id + '">' + v.id + '</a></li>');
                     $('.clickmee').click(function () {
                         var foo = $(this).data("nodename");
                         commentarray.forEach(function (d) {
@@ -697,7 +697,14 @@ var sidebar = function (foo) {
                     });
                 }
             });
+            if (foo === "JonSnow") {
+                    $('.gallery').replaceWith('<a href="gallery.html" class="btn gallery">Gallery</a>');
+            }
+            else {
+                    $('.gallery').replaceWith('<a href="" class="gallery"></a>');
+            }
         }
+
     });
 };
 ////////////////////////////
@@ -712,6 +719,7 @@ $('.clickme').click(function () {
     sidebar(foo);
 
 });
+
 function getRandomInt() {
-  return Math.floor(Math.random() * (21 - 0)) + 0;
+    return Math.floor(Math.random() * (21 - 0)) + 0;
 }
