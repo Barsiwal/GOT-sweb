@@ -453,6 +453,9 @@ var mainobj = {
         "followsReligion": {
             "id": "FaithOfTheSeven"
         },
+        "hasSpouse": {
+            "id": "SansaStark"
+        },
         "hasName": "Tyrion Lannister",
         "hasTitle": "Master of Coin (former)\nHand of the King (acting) (former)",
         "rdfs:comment": "Tyrion Lannister is the youngest son of Lord Tywin Lannister and younger brother of Cersei and Jaime Lannister. A dwarf, he uses his wit and intellect to overcome the prejudice he faces."
@@ -698,10 +701,9 @@ var sidebar = function (foo) {
                 }
             });
             if (foo === "JonSnow") {
-                    $('.gallery').replaceWith('<a href="gallery.html" class="btn gallery">Gallery</a>');
-            }
-            else {
-                    $('.gallery').replaceWith('<a href="" class="gallery"></a>');
+                $('.gallery').replaceWith('<a href="gallery.html" class="btn gallery">Gallery</a>');
+            } else {
+                $('.gallery').replaceWith('<a href="" class="gallery"></a>');
             }
         }
 
